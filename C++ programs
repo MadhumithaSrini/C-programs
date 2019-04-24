@@ -1,0 +1,226 @@
+1.To print the following pattern.
+         4
+		 3 4
+		 2 3 4
+		 1 2 3 4
+		 2 3 4
+		 3 4
+		 4
+		 
+#include<iostream.h>
+#include<conio.h>
+void main()
+{ 
+  clrscr();                     /*To clear the screen.*/
+  cout<<"The pattern is";
+  int i,n,j;
+  for(i=0;i<n;i++)
+  {
+	n=4;
+	for(j=n-i;j<=n;j++)        /*To limit the number of times the numbers are printed in a line*/
+	{
+	   cout<<j<<'\t';
+    }
+  cout<<'\n';                  /*To print the numbers in a new line*/
+  }
+  int x=1;y=2;          
+  for(i;i<=(n*2)-2;i++)
+  {
+	for(j=1;j<=(i-x);j++;y++)
+	{
+	    cout<<y<<'\t';
+	}		
+  y++;
+  x+=2;                        /*Incrementing the control variable "x" so as to limit the numbers printed in each line*/
+  cout<<'\n';
+  }
+ }
+
+
+
+
+
+2.To find the denomination ie.) to find and print the number of hundreds , fiftees, twenties, tens, fives.
+
+#include<iostream.h>
+#include<conio.h>
+void main()
+{
+   clrscr();
+	int n,h=0,f=0,r,ten,five,t,T;
+	cout<<"Enter the number";
+	cin>>n;
+	T=n;
+	r=n;
+	while(n>0)                                     /*Till the amount becomes zero the denominations are counted*/
+	{
+		if(r>=100)
+		{
+			h=n/100;
+			cout<"The number of hundreds :"<<h;
+			r=T-(h*100)                            /*TO find the remaining amount apart from the hundreds' count*/
+			n=r;
+		}
+		else if((r>=50)&&(r<100))
+		{
+			f=r/50;
+			cout<<"The number of fiftees :"<<f;
+			r=r-(f*50);
+			n=r;
+		}
+		else if((r>=20)&&(r<50))
+		{
+			t=r/20;
+			cout<<"The number of twenties :"<<t;
+			r=r-(t*20);
+			n=r;
+		}
+		else if((r>=10)&&(r<25))
+		{
+			ten=r/10;
+			cout<<"The number of tens :"<<ten;
+			r=r-(ten*10);
+			n=r;
+		}
+		else if((r>=5)&&(r<10))
+		{
+			five=r/5;
+			r=r-(five*5);
+			cout<<"The number of fives"<<five;
+			cout<<"And"<<r<<"rupees";
+			exit(0);
+		}
+			
+	}
+	
+}
+
+
+
+
+3. To overload a "*" operator to multiply the respective arguments of two objects in a class.
+
+#include<iostream.h>
+  class multiply
+  {
+	  int x,y;
+	  public:
+	   void getdata(int a,int b)                   /*passing the arguments of the objects by value*/
+	   {
+		   x=a;
+		   y=b;
+		}
+		void display()
+		{
+			cout<<"x="<<x<<"y="<<y;
+		}
+		multiply operator *(multiply c);              /*declaration of operator that is to be overloaded*/
+  };
+  
+  multiply multiply ::operator *(multiply c)     /*Giving the definition for the overloaded operator*/
+  {
+	  multiply temp;
+	  temp.x=x*c.x;                                /*c.x takes the value passed to c in the argument ie.)argument of object2*/
+	  temp.y=y*c.y;
+	  return temp;
+  }
+  int main()
+  {
+	  multiply obj1,obj2,obj3;                    /*Declaring three objects of the class "multiply"*/
+	  obj1.getdata(5,20);
+	  obj2.getdata(3,10);
+	  obj3=obj1*obj2;                             /*obj3 is an object of the class to store the result of the operation performed*/
+	  obj3.display();            
+	  return 0;
+	  
+  }
+  
+  
+
+
+4.To print text without using semicolon.
+ 
+ #include<iostream>
+ #include<conio.h>
+ {
+	if(cout<<"text")                           /*if condition is checked where the cout statement is given .Thus printed*/
+	{}
+ }
+
+
+
+
+5.To print the following pattern
+    5
+	  6 * 7
+	  8 * 9 *10
+	  11* 12
+	  13
+	  
+ #include<iosteam.h>
+ #include<conio.h>
+ main()
+ {
+	 int s=5,i,j,x,n=5;
+	 for(i=1;i<+3;i++)
+	 {
+		 for(j=1;j<=(i*2)-1;j++)
+		 {
+			 if((j%2)!=0)       /*In odd places numbers are printed and "*" is printed in the even places*/
+			 {
+				 cout<<s;
+				 s++;
+			 }
+			 else
+				 cout<<"*";
+		 }
+		 cout<<'\n';
+	 }
+	 x=4;                    /*initialising another control variable "x" to limit the j value without affecting the value to be printed*/
+ 
+	for(i=4;i<=n;i++)
+	{
+		for(j=1;j<x;j++)
+		{
+			if((j%2)!=0)
+			{
+				cout<<s;
+			}s++;
+			else
+				cout<<"*";
+		}
+		x=x-2;
+		cout<'\n';
+	}
+ }	
+  
+  
+ 
+ 
+ 6.To remove the spaces and then display the entered content.
+ 
+ 
+#include<iostream>
+#include<conio.h>
+ 
+int main()
+{
+	int i,j=0;
+	char str[30];
+	cout<<"Enter a String:\n";
+	gets(str);
+	
+	for(i=0;str[i]!='\0';++i)                      */The characters are checked until the end of the string which specifies with a null*/
+	{
+	   if(str[i]!=' ')              
+	   str[j++]=str[i];                            */If space is not encountered the old string's char is stored in a new arrar*/
+	}
+	
+	str[j]='\0';                                   */Specifying that the new array has ended*/
+	
+	cout<<"\nString After Removing Spaces:\n";
+  cout<<str;
+	return 0;
+}
+  
+ 
