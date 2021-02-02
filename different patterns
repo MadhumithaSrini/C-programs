@@ -1,0 +1,189 @@
+PATTERN PRINTING EXERCISE(samples)
+					-by Madhumitha.S
+						
+1.)
+#include <stdio.h>
+int main()
+{
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<5;j++)
+      	  printf("*\t");
+    printf("\n");
+    }
+    return 0;
+}
+
+OUTPUT : 
+Image
+
+
+2.)
+#include <stdio.h>
+int main()
+{
+    int N=11,d;
+    for(int i=1;i<=6;i++)
+    {
+        for(int j=1;j<=11;j++)
+        {
+            if((j>=i)&&(j<=(N-i+1)))
+            {
+                d=j-i;
+                if(d==0 || d==2 || d==4 || d==6 || d==8 || d==10)
+                    printf("*");
+                else
+                    printf(" ");
+            }
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+OUTPUT:
+Image
+
+
+3.)
+#include <stdio.h>
+int main()
+{
+   int c=0,temp=0;
+   for(int i=1;i<=5;i++)
+   {
+       c=i+(i-1);
+       temp=i;
+       for(int j=1;j<=9;j++)
+       {
+           if((j>=(5-i+1)) && (j<=(5+i-1)))
+           {
+               if(j<=5)
+               {
+                printf("%d ",temp);
+                temp++;
+               }
+               else
+               {
+                   c--;
+                   printf("%d ",c);
+               }
+           }
+           else
+             printf("  ");//double space is given
+       }
+       printf("\n");
+   }
+    return 0;
+}
+
+OUTPUT:
+Image
+
+
+4.)
+#include <stdio.h>
+int main()
+{
+   int N=8,c=1,d,temp;
+   for(int i=1;i<=8;i++)
+   {
+       if(i>(N/2))
+       {
+           d=i-(N/2)-1;
+           temp=(N/2)-d;
+           c=0;
+           for(int s=(temp-1);s>=1;s--)
+                c+=s;
+           c++;
+       }
+        else
+            temp=i;
+        for(int j=1;j<=(temp*2-1);j++)
+        {
+            if(j%2==0)
+                printf("*");
+            else
+            {
+                printf("%d",c);
+                c++;
+            }
+        }
+        printf("\n");
+   }
+    return 0;
+}
+
+OUTPUT:
+Image
+
+
+5.)
+#include <stdio.h>
+int main()
+{
+   int N=16,count;
+   for(int i=1;i<=5;i++)
+   {
+       count=1;
+       for(int j=0;j<=16;j++)
+       {
+           if((j>=(N/2)-i+1) && (j<=((N/2)+i-1)))
+           {
+               if((count%2)==0)
+               {
+                   printf("*");
+               }
+               else
+                printf("%d",i);
+               count++;
+           }
+           else
+            printf("*");
+       }
+       printf("\n");
+   }
+    return 0;
+}
+
+OUTPUT:
+Image
+
+
+6.)
+#include <stdio.h>
+int main()
+{
+   int N=10,count,d,temp;
+   for(int i=1;i<=10;i++)
+   {
+       if(i>(N/2))
+       {
+           d=i-(N/2)-1;
+           temp=(N/2)-d;
+       }
+       else
+        temp=i;
+    for(int j=0;j<=10;j++)
+    {
+        if((j>=((N/2)-temp+1)) && (j<=((N/2)+temp-1)))
+            printf("  "); //double space
+        else
+            printf("* ");
+    }
+       printf("\n");
+   }
+    return 0;
+}
+
+OUTPUT:
+Image
+
+
+
+
+
+
+
